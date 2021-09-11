@@ -1,0 +1,17 @@
+type: theory
+files:
+- name: src/Main.java
+  visible: true
+  text: |-
+    public class Main {
+        public static void main(String[] args) {
+            System.out.println("Uruchom mnie!");
+        }
+    }
+  learner_created: false
+status: Unchecked
+feedback:
+  message: Unable to execute task `Witaj świecie`, main method is missing
+  time: Tue, 24 Aug 2021 19:28:02 UTC
+record: -1
+post_submission_on_open: true
