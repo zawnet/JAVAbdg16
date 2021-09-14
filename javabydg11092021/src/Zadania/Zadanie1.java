@@ -51,21 +51,7 @@ Posta ósemkowa liczby dziesitnej 15 to 17
         return Integer.parseInt(s);
     }
 
-    private static int convertDecimalToOctal(int n){
-        int liczba = 0;
-        int wyst = 0;
 
-        while (n != 0){
-            int r = n % 8;
-            System.out.println(r);
-            n /= 8;
-
-            liczba += (Math.pow(10,wyst) * r);
-            wyst++;
-        }
-
-        return liczba;
-    }
     private static int convertOctalToDecimal(int n){
         int liczba = 0;
         int potega = 0;

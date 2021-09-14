@@ -11,7 +11,7 @@ package Zadania;
  * 432
  * Ilo wszystkich liczb 3-cyfrowych to 24
  */
-public class Zdanie18 {
+public class Zadanie18 {
     public static void main(String[] args) {
         System.out.println(generateUnicalNDigitsNumber(4));
     }
