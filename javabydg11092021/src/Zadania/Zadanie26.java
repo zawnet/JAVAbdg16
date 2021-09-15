@@ -14,11 +14,15 @@ public class Zadanie26 {
         System.out.println(Arrays.toString(bubbleSort(a)));
     }
 
+    /**
+     * Implementacja algorytmu sortowania bąbelkowego dla tablicy liczb całkowitych
+     * @param a Tablica do porostowania
+     * @return Posortowana tablica
+     */
     private static int[] bubbleSort(int a[]){
         int n = a.length;
-
-
         while (n>0) {
+            //szukamy największego w tablicy elemetu i umieszczamy go na końcu tablicy
             for (int i = 0; i < n - 1; i++) {
                 if (a[i] > a[i + 1]) {
                     int tmp = a[i + 1];
@@ -26,6 +30,7 @@ public class Zadanie26 {
                     a[i] = tmp;
                 }
             }
+            //po wyznaczneiu największego elementu zaweżamy zakres szukania o n-1
             n--;
         }
         return a;
