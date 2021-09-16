@@ -7,12 +7,15 @@ import java.util.Arrays;
  */
 
 public class Zadanie31 {
+    private static int tmp[];
 
     public static void main(String[] args) {
         int a[] = {54,26,93,17,77,31,44,55,20};
-        int tmp[] = new int[a.length];
+        tmp = new int[a.length];
+
 
         mergeSort(a,0,a.length-1);
+        System.out.println(Arrays.toString(a));
     }
 
     private static void mergeSort(int a[], int l, int p){
@@ -25,31 +28,31 @@ public class Zadanie31 {
 
         mergeSort(a, l,s);
         mergeSort(a,s+1,p);
-
-        System.out.println("Lewy -> "+l + " Prawy -> "+p);
         mergeArray(a,l,s,p);
+       // System.out.println("Lewy -> "+l + " Prawy -> "+p);
+
 
 
     }
 
    private static void mergeArray(int a[],int l, int s, int p){
-        int i = l;
-        int j = s+1;
-        int tmp[] = new int[p];
-
-        for(i=l;i<p;i++){
-            tmp[i] = a[i];
-        }
-        for(int k = l; k<=p; k++) {
-            if(i<=s){
-                if(j<=p){
-                    if(tmp[j] <tmp[j++]){
-
-                    }
-                }
-            }
-        }
-       System.out.println(Arrays.toString(tmp));
+       int i,j,q;
+       for (i=l; i<=p; i++){
+           tmp[i]=a[i];  // Skopiowanie danych do tablicy pomocniczej
+       }
+       i=l; j=s+1; q=l;                 // Ustawienie wskaźników tablic
+       while (i<=s && j<=p) {           // Przenoszenie danych z sortowaniem ze zbiorów pomocniczych do tablicy głównej
+           if (tmp[i]<tmp[j]) {
+               a[q++] = tmp[i++];
+           }
+           else {
+               a[q++] = tmp[j++];
+           }
+       }
+       while (i<=s){
+           a[q++]=tmp[i++]; // Przeniesienie nie skopiowanych danych ze zbioru pierwszego w przypadku, gdy drugi zbiór się skończył
+       }
    }
+
 
 }
