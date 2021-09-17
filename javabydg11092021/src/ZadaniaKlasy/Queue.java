@@ -110,9 +110,9 @@ public class Queue {
         int n = 0;
         if(queueItem != null){
             QueueItem tmp = queueItem;
-            System.out.println(tmp.getName());
+            System.out.print(tmp.getName()+ " -> ");
             while ((tmp = tmp.getNext()) !=null){
-                System.out.println(tmp.getName());
+                System.out.print(tmp.getName()+" -> ");
             }
         }
     }
@@ -126,7 +126,7 @@ public class Queue {
         queue.add(new QueueItem("Małgorzata"));
         queue.add(new QueueItem("Waldemar"));
         queue.add(new QueueItem("Huber"));
-        queue.poll();
+        //queue.poll();
         queue.add(new QueueItem("Konrad"));
 
         //queue.add(new QueueItem("Konrad"));
