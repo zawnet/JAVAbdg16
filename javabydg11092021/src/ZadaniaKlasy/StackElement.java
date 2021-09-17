@@ -31,4 +31,7 @@ public class StackElement {
         this.created = new Date();
     }
 
+    public StackElement(String name) {
+        this.name = name;
+    }
 }

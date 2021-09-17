@@ -16,7 +16,7 @@ package ZadaniaKlasy;
  */
 public class Stack {
     private int size;
-    private int count=0;
+    private int freeElement;
     private StackElement stackElements[];
 
     public int getSize() {
@@ -32,8 +32,11 @@ public class Stack {
      * @param size
      */
     public Stack(int size) {
-        this.size = size;
+
         stackElements = new StackElement[size];
+        freeElement = 0;
+        this.size = stackElements.length;
+
     }
 
     /**
@@ -44,48 +47,80 @@ public class Stack {
      * @return
      */
     public StackElement push(StackElement stackElement){
-        System.out.println(count());
-        if(count() < getSize() && !equals(stackElement)){
-            this.stackElements[count++] = stackElement;
+        if(freeElement < size && !equals(stackElement)){
+            this.stackElements[freeElement] = stackElement;
+          freeElement++;
             return stackElement;
         }
-        return null;
+        else {
+            return null;
+        }
+    }
+
+    /**
+     * zdejmuje i zwraca najnowszy element ze stosu, gdy zostanie wywoana na pustym stosie powinna wypisa informacj o tym, e stos jest pusty
+     * @return najnowszy element ze stosu
+     */
+    public StackElement pop(){
+        if(freeElement <= 0 ) {
+            return null;
+        }
+        else {
+            StackElement tmp = stackElements[freeElement -1];
+            freeElement--;
+            return tmp;
+        }
     }
 
     @Override
     public boolean equals(Object obj) {
         int n=0;
         StackElement element = (StackElement) obj;
-        while (n<count()){
+        while (n<freeElement)
+        {
             if(stackElements[n].equals(element) || stackElements[n].getName() == element.getName()){
                 return true;
             }
-            n++;
+           n++;
         }
         return false;
     }
 
     int count(){
-        return count;
+        return freeElement - 1;
     }
 
+    void print(){
+        StringBuilder sb;
+        if(freeElement <= 0){
+            sb = new StringBuilder("Stos jest pusty !!!");
+        }
+        else {
+            sb = new StringBuilder("Elementy stosu to: \n");
+            for (int i = count(); i >= 0; i--) {
+                sb.append(stackElements[i].getName()).append("\n");
+            }
+        }
+        System.out.println(sb);
+    }
     public static void main(String[] args) {
         Stack stack = new Stack(4);
-        StackElement stackElement = new StackElement();
-        stackElement.setName("Paweł");
-        stack.push(stackElement);
-        stackElement = new StackElement();
-        stackElement.setName("Aneta");
-        stack.push(stackElement);
-        stackElement = new StackElement();
-        stackElement.setName("Ola");
-        stack.push(stackElement);
-        stackElement = new StackElement();
-        stackElement.setName("Jaś");
-        stack.push(stackElement);
-        stackElement = new StackElement();
-        stackElement.setName("Małgorzata");
-        stack.push(stackElement);
-        System.out.println(stack.count());
+
+        stack.push(new StackElement("Paweł"));
+        stack.push(new StackElement("Aneta"));
+        stack.push(new StackElement("Ola"));
+        stack.push( new StackElement("Jaś"));
+        stack.pop();
+        stack.push(new StackElement("Małgorzata"));
+        //System.out.println(stack.count());
+        stack.print();
+        stack.pop();
+        stack.pop();
+        stack.pop();
+        stack.pop();
+        stack.push(new StackElement("Waldemar"));
+        stack.push(new StackElement("Hubert"));
+        stack.push(new StackElement("Konrad"));
+        stack.print();
     }
 }
