@@ -131,7 +131,7 @@ public class Queue {
         queue.add(new QueueItemTwoWay("Waldemar"));
         queue.add(new QueueItemTwoWay("Huber"));
         //queue.poll();
-        queue.add(new QueueItemTwoWay("Konrad"));
+        queue.add(new QueueItemTwoWay("Konrad"),4);
         queue.print();
         System.out.println();
         queue.poll(0);
