@@ -1,6 +1,7 @@
 package ZadaniaKlasy;
 
 /**
+ * @author Paweł Zawada (ZAWNET)
  * Wykorzystujc umiejtno programowania obiektowego, napisz program składający się z nastpujących klas
  * Stack - klasa reprezentujca stos, stos ma swój stłay rozmiar, który jest ustanawiany w trakcie tworzenia instancji stosu, posiada
  * dwie metody
@@ -32,11 +33,9 @@ public class Stack {
      * @param size
      */
     public Stack(int size) {
-
         stackElements = new StackElement[size];
         freeElement = 0;
         this.size = stackElements.length;
-
     }
 
     /**
@@ -63,11 +62,28 @@ public class Stack {
      */
     public StackElement pop(){
         if(freeElement <= 0 ) {
-            return null;
+            StringBuilder sb = new StringBuilder("Stos jest pusty!!!");
+            throw new ArrayIndexOutOfBoundsException(sb.toString());
         }
         else {
             StackElement tmp = stackElements[freeElement -1];
             freeElement--;
+            return tmp;
+        }
+    }
+
+    /**
+     * zwraca najnowszy element ze stosu, ale go nie usuwa, gdy zostanie wywoana na pustym stosie
+     * powinna wypisa informacj o tym, e stos jest pusty
+     * @return najnowszy element ze stosu
+     */
+    public StackElement peek(){
+        if(freeElement <= 0 ) {
+            StringBuilder sb = new StringBuilder("Stos jest pusty!!!");
+            throw new ArrayIndexOutOfBoundsException(sb.toString());
+        }
+        else {
+            StackElement tmp = stackElements[freeElement -1];
             return tmp;
         }
     }
@@ -98,7 +114,8 @@ public class Stack {
         else {
             sb = new StringBuilder("Elementy stosu to: \n");
             for (int i = count(); i >= 0; i--) {
-                sb.append(stackElements[i].getName()).append("\n");
+                sb.append(stackElements[i].toString());
+                sb.append("\n");
             }
         }
         System.out.println(sb);
@@ -121,6 +138,7 @@ public class Stack {
         stack.push(new StackElement("Waldemar"));
         stack.push(new StackElement("Hubert"));
         stack.push(new StackElement("Konrad"));
+        stack.peek().print();
         stack.print();
     }
 }
