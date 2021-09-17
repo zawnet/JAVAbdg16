@@ -47,6 +47,74 @@ public class QueueTwoWay extends Queue {
         return queueItem;
     }
 
+    public  QueueItemTwoWay add(QueueItemTwoWay queueItem, int i){
+        boolean isinquere= false;
+        int n=0;
+        if (getQueueItem() == null || i==0) {
+            if(getQueueItem().getNext() != null){
+                queueItem.setNext(getQueueItem());
+                getQueueItem().setPrev(queueItem);
+            }
+
+            setQueueItem(queueItem); //pierszy element kolejki
+
+        }
+        else if(i<=count()) {
+            QueueItemTwoWay tmp = this.queueItem;
+            while (tmp.getNext() != null){
+                if(tmp.getNext().equals(queueItem)) {
+                    isinquere = true;
+                    System.out.println(queueItem.toString() + " Istnieje juz w kolejce");
+                    break;
+                }
+                if(n==i) break;
+                n++;
+                if(tmp.getNext() == null) break;
+                else tmp=tmp.getNext();
+            }
+
+            if (!isinquere) {
+                tmp.getPrev().setNext(queueItem);
+                queueItem.setPrev(tmp.getPrev());
+                tmp.setPrev(queueItem);
+                queueItem.setNext(tmp);
+
+
+                return queueItem;
+            }
+            else {
+                return null;
+            }
+        }
+        else {
+            System.out.println("Nie ma miejsca do wstawienia tego elementu");
+        }
+        return queueItem;
+    }
+    QueueItemTwoWay poll(int i) {
+        int n = 0;
+        if (i >= 0 && i < count()) {
+            if(i==0) setQueueItem(getQueueItem().getNext());
+
+            else if (getQueueItem() != null) {
+                QueueItemTwoWay tmp = getQueueItem();
+                while ((tmp = tmp.getNext()) != null && i>n) {
+                    n++;
+                }
+
+                tmp.getPrev().getPrev().setNext(tmp);
+                tmp.setPrev(tmp.getPrev().getPrev());
+
+
+                return tmp.getNext();
+            }
+        } else {
+            System.out.println("Nie ma takiego elementu co usniecia");
+
+        }
+        return null;
+    }
+
     @Override
     void print() {
         int n = 0;
@@ -67,4 +135,19 @@ public class QueueTwoWay extends Queue {
             System.out.println("KOlejka jest pusta");
         return getQueueItem();
     }
+
+    @Override
+    int count() {
+        int n = 0;
+        if(getQueueItem() != null){
+            QueueItemTwoWay tmp = getQueueItem();
+            while ((tmp = tmp.getNext()) !=null){
+                n++;
+            }
+        }
+        //System.out.println(n);
+        return n;
+    }
+
+
 }

@@ -98,8 +98,8 @@ public class Queue {
      */
     int count(){
         int n = 0;
-        if(queueItem != null){
-            QueueItem tmp = queueItem;
+        if(getQueueItem() != null){
+            QueueItem tmp = getQueueItem();
             while ((tmp = tmp.getNext()) !=null){
                 n++;
             }
@@ -130,8 +130,11 @@ public class Queue {
         queue.add(new QueueItemTwoWay("Małgorzata"));
         queue.add(new QueueItemTwoWay("Waldemar"));
         queue.add(new QueueItemTwoWay("Huber"));
-        queue.poll();
+        //queue.poll();
         queue.add(new QueueItemTwoWay("Konrad"));
+        queue.print();
+        System.out.println();
+        queue.poll(0);
 
         //queue.add(new QueueItem("Konrad"));
         queue.print();
