@@ -29,6 +29,10 @@ public class Queue {
         this.queueItem = queueItem;
     }
 
+    public QueueItem getQueueItem() {
+        return queueItem;
+    }
+
     /**
      * dodaje kolejny element do kolejki. Metoda powinna blokowa umieszczanie na
      * stosie takich samych elementów (o tej samej nazwie - w tym celu przeciąż metodę equals()).
@@ -38,11 +42,11 @@ public class Queue {
      */
     public  QueueItem add(QueueItem queueItem){
         boolean isinquere= false;
-        if (this.queueItem == null) {
+        if (getQueueItem() == null) {
             setQueueItem(queueItem); //pierszy element kolejki
         }
         else {
-            QueueItem tmp = this.queueItem;
+            QueueItem tmp = getQueueItem();
             while (tmp.getNext() != null){
                 if(tmp.getNext().equals(queueItem)) {
                     isinquere = true;
@@ -66,8 +70,8 @@ public class Queue {
 
     @Override
     public boolean equals(Object obj) {
-        if(queueItem == null) return false;
-        QueueItem tmp = queueItem;
+        if(getQueueItem() == null) return false;
+        QueueItem tmp = getQueueItem();
         while (tmp.getNext() != null){
             if(tmp.getNext().equals(obj)) return true;
             else tmp=tmp.getNext();
@@ -81,11 +85,11 @@ public class Queue {
      * @return zwraca pierwszy element z kolejki
      */
     QueueItem poll(){
-        if(queueItem != null)
-            queueItem = queueItem.getNext();
+        if(getQueueItem() != null)
+             setQueueItem(getQueueItem().getNext());
         else
             System.out.println("KOlejka jest pusta");
-        return queueItem;
+        return getQueueItem();
 
     }
     /**
@@ -118,16 +122,16 @@ public class Queue {
     }
 
     public static void main(String[] args) {
-        Queue queue = new Queue();
-        queue.add(new QueueItem("Paweł"));
-        queue.add(new QueueItem("Aneta"));
-        queue.add(new QueueItem("Ola"));
-        queue.add(new QueueItem("Jaś"));
-        queue.add(new QueueItem("Małgorzata"));
-        queue.add(new QueueItem("Waldemar"));
-        queue.add(new QueueItem("Huber"));
-        //queue.poll();
-        queue.add(new QueueItem("Konrad"));
+        QueueTwoWay queue = new QueueTwoWay();
+        queue.add(new QueueItemTwoWay("Paweł"));
+        queue.add(new QueueItemTwoWay("Aneta"));
+        queue.add(new QueueItemTwoWay("Ola"));
+        queue.add(new QueueItemTwoWay("Jaś"));
+        queue.add(new QueueItemTwoWay("Małgorzata"));
+        queue.add(new QueueItemTwoWay("Waldemar"));
+        queue.add(new QueueItemTwoWay("Huber"));
+        queue.poll();
+        queue.add(new QueueItemTwoWay("Konrad"));
 
         //queue.add(new QueueItem("Konrad"));
         queue.print();

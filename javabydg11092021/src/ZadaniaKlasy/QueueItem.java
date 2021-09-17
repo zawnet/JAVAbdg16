@@ -11,6 +11,9 @@ public class QueueItem {
     //Constructors definicion
 
 
+    public QueueItem() {
+    }
+
     public QueueItem(QueueItem next, String name) {
         this.next = next;
         this.name = name;
