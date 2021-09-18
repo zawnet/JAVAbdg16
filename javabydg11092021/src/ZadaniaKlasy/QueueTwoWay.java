@@ -141,15 +141,18 @@ public class QueueTwoWay extends Queue {
 
     @Override
     int count() {
-        int n = 0;
-        if(getQueueItem() != null){
-            QueueItemTwoWay tmp = getQueueItem();
-            while ((tmp = tmp.getNext()) !=null){
-                n++;
-            }
-        }
-        //System.out.println(n);
-        return n;
+       return count(queueItem,0);
+    }
+
+    /**
+     * rekurencyjna metoda zliczajaca ilosc elementow w kolejce
+     * @param queueItem
+     * @param i
+     * @return
+     */
+    int count(QueueItemTwoWay queueItem, int i){
+        if(queueItem == null) return i;
+        else return count(queueItem.getNext(),++i);
     }
 
 
