@@ -85,12 +85,15 @@ public class Queue {
      * @return zwraca pierwszy element z kolejki
      */
     QueueItem poll(){
-        if(getQueueItem() != null)
-             setQueueItem(getQueueItem().getNext());
-        else
+        if(getQueueItem() != null) {
+            QueueItem tmp = getQueueItem().getNext();
+            setQueueItem(tmp);
+            return tmp;
+        }
+        else {
             System.out.println("KOlejka jest pusta");
-        return getQueueItem();
-
+            return null;
+        }
     }
     /**
      * zwraca informacj o iloci elementów w kolejce
@@ -130,11 +133,11 @@ public class Queue {
         queue.add(new QueueItemTwoWay("Małgorzata"));
         queue.add(new QueueItemTwoWay("Waldemar"));
         queue.add(new QueueItemTwoWay("Huber"));
-        //queue.poll();
+        queue.poll();
         queue.add(new QueueItemTwoWay("Konrad"),4);
         queue.print();
         System.out.println();
-        queue.poll(0);
+        //queue.poll(0);
 
         //queue.add(new QueueItem("Konrad"));
         queue.print();
