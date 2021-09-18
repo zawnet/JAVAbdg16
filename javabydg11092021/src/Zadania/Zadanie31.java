@@ -33,8 +33,6 @@ public class Zadanie31 {
         mergeArray2(a,l,s,p);
        // System.out.println("Lewy -> "+l + " Prawy -> "+p);
 
-
-
     }
 
     /**

@@ -46,14 +46,20 @@ public class Stack {
      * @return
      */
     public StackElement push(StackElement stackElement){
-        if(freeElement < size && !equals(stackElement)){
-            this.stackElements[freeElement] = stackElement;
-          freeElement++;
-            return stackElement;
-        }
-        else {
+        if(checkIsExistInStack(stackElement)){
+            System.out.println("Element juz istnieje");
             return null;
         }
+        else if(freeElement >= size){
+            System.out.println("Brak miejsca do umeszczenia na stosie");
+            return null;
+        }
+        else {
+            this.stackElements[freeElement] = stackElement;
+            freeElement++;
+            return stackElement;
+        }
+
     }
 
     /**
@@ -88,19 +94,23 @@ public class Stack {
         }
     }
 
-    @Override
-    public boolean equals(Object obj) {
+    /**
+     * Metoda sprawdza czy dany obiekt (lub o takiej samej nazwie) znajduje sie na stosie
+     * @param stackElement
+     * @return
+     */
+    private boolean checkIsExistInStack(StackElement stackElement){
         int n=0;
-        StackElement element = (StackElement) obj;
         while (n<freeElement)
         {
-            if(stackElements[n].equals(element) || stackElements[n].getName() == element.getName()){
+            if(stackElements[n].equals(stackElement) ){
                 return true;
             }
-           n++;
+            n++;
         }
         return false;
     }
+
 
     int count(){
         return freeElement - 1;
@@ -120,25 +130,5 @@ public class Stack {
         }
         System.out.println(sb);
     }
-    public static void main(String[] args) {
-        Stack stack = new Stack(4);
 
-        stack.push(new StackElement("Paweł"));
-        stack.push(new StackElement("Aneta"));
-        stack.push(new StackElement("Ola"));
-        stack.push( new StackElement("Jaś"));
-        stack.pop();
-        stack.push(new StackElement("Małgorzata"));
-        //System.out.println(stack.count());
-        stack.print();
-        stack.pop();
-        stack.pop();
-        stack.pop();
-        stack.pop();
-        stack.push(new StackElement("Waldemar"));
-        stack.push(new StackElement("Hubert"));
-        stack.push(new StackElement("Konrad"));
-        stack.peek().print();
-        stack.print();
-    }
 }

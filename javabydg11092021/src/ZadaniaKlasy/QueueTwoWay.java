@@ -117,6 +117,7 @@ public class QueueTwoWay extends Queue {
 
     @Override
     void print() {
+
         int n = 0;
         if(getQueueItem() != null){
             QueueItem tmp = getQueueItem();
@@ -125,6 +126,8 @@ public class QueueTwoWay extends Queue {
                 System.out.print(tmp.getName()+" -> ");
             }
         }
+
+       // super.print();
     }
 
     @Override
