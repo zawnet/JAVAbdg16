@@ -3,15 +3,15 @@ files:
 - name: src/Task.java
   visible: true
   placeholders:
-  - offset: 150
-    length: 31
+  - offset: 94
+    length: 650
     placeholder_text: // Tu zaimplementuj rozwiązanie
     initial_state:
       length: 31
       offset: 150
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Failed
     encrypted_possible_answer: |-
       int number;
               int max = Integer.MIN_VALUE;
@@ -108,5 +108,13 @@ files:
 
     }
   learner_created: false
-status: Unchecked
+status: Failed
+feedback:
+  message: 'Dla ciÄ…gu liczb: 1, -4, 2, 17, 0, program powinien wypisaÄ‡ w konsoli
+    liczby: 13, 6.5.'
+  time: Wed, 22 Sep 2021 20:26:08 UTC
+  expected: |-
+    13
+    6.5
+  actual: 13 4,00
 record: -1

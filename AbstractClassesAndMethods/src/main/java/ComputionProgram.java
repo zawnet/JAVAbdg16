@@ -35,6 +35,11 @@ public class ComputionProgram {
 
         if(input.next().contains("*")) return true;
         else return false;
+
+ //       Integer[] array = new Integer[10];
+//        byte[] array = (123);
+ //       char array[] = {"a"};
+  //      long[] array = {"1"};
     }
 
 }
