@@ -4,14 +4,14 @@ files:
   visible: true
   placeholders:
   - offset: 191
-    length: 31
+    length: 530
     placeholder_text: // Tu zaimplementuj rozwiązanie
     initial_state:
       length: 31
       offset: 191
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |-
       if (number <= 1) {
                   System.out.println("Przerywam pracę");
@@ -131,5 +131,8 @@ files:
 
     }
   learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Fri, 24 Sep 2021 08:14:58 UTC
 record: -1

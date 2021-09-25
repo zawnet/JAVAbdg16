@@ -7,6 +7,19 @@ public class Task {
                 .mapToInt(Integer::parseInt)
                 .toArray();
 
-        // Tu zaimplementuj rozwiązanie
+        int n = 0;
+        while (n < 10){
+            int countNuber = 0;
+            n++;
+            for(int i = 0; i< numbers.length; i++){
+                if(n == numbers[i]){
+                    countNuber++;
+                }
+                else {
+                    continue;
+                }
+            }
+            System.out.println(n+" - "+countNuber);
+        }
     }
 }

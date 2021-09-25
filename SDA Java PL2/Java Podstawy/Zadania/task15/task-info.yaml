@@ -3,15 +3,15 @@ files:
 - name: src/Task.java
   visible: true
   placeholders:
-  - offset: 199
-    length: 31
+  - offset: 224
+    length: 572
     placeholder_text: // Tu zaimplementuj rozwiązanie
     initial_state:
       length: 31
       offset: 199
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Failed
     encrypted_possible_answer: |-
       String text = scanner.nextLine();
               String[] words = text.replaceAll("[^a-zA-Z ]", "").toLowerCase().split("\\s+");
@@ -130,5 +130,29 @@ files:
 
     }
   learner_created: false
-status: Unchecked
+status: Failed
+feedback:
+  message: "Dla tekstu Ala lubi koty, ale nie jest przez Koty lubiana., program powinien\
+    \ wypisaÄ‡ w konsoli: \nala - 1\nale - 1\njest - 1\nkoty - 2\nlubi - 1\nlubiana\
+    \ - 1\nnie - 1\nprzez - 1."
+  time: Fri, 24 Sep 2021 21:27:26 UTC
+  expected: |-
+    ala - 1
+    ale - 1
+    jest - 1
+    koty - 2
+    lubi - 1
+    lubiana - 1
+    nie - 1
+    przez - 1
+  actual: |-
+    ala - 1
+    lubi - 1
+    koty - 2
+    ale - 1
+    nie - 1
+    jest - 1
+    przez - 1
+    koty - 2
+    lubiana - 1
 record: -1

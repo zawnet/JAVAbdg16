@@ -4,14 +4,14 @@ files:
   visible: true
   placeholders:
   - offset: 234
-    length: 31
+    length: 371
     placeholder_text: // Tu zaimplementuj rozwiązanie
     initial_state:
       length: 31
       offset: 234
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |-
       int[] occurrences = new int[10];
 
@@ -133,5 +133,8 @@ files:
 
     }
   learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Fri, 24 Sep 2021 11:08:30 UTC
 record: -1

@@ -4,14 +4,14 @@ files:
   visible: true
   placeholders:
   - offset: 151
-    length: 31
+    length: 162
     placeholder_text: // Tu zaimplementuj rozwiązanie
     initial_state:
       length: 31
       offset: 151
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |-
       String text = scanner.nextLine();
 
@@ -88,5 +88,8 @@ files:
 
     }
   learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Fri, 24 Sep 2021 12:54:18 UTC
 record: -1
